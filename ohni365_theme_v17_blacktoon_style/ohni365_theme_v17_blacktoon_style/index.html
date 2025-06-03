@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>OHLI365</title>
+    <!-- 기존 버전 제거 -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /> -->
+
+    <!-- 최신 버전으로 교체 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@500&amp;family=Jua&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --header-bg: #000000;
+        --menu-bg: #34363f;
+        --menu-text: #000000;
+        --btn-color: #5c5a5b;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+
+        font-family: "Jua", "Gmarket Sans", sans-serif;
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #ffffff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+      }
+
+      .top-header {
+        background: var(--header-bg);
+        padding: 10px 0;
+        color: #fff;
+      }
+
+      .ohlilogo img {
+        height: 38px;
+      }
+
+      .right-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        margin-left: 10px;
+        color: #000000;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+      }
+
+      .navbar {
+        top: 63px; /* 헤더 높이만큼 아래로 */
+        background-color: #f8f5f5;
+      }
+      .nav-menu-wrapper {
+        flex-grow: 1;
+        align-items: center;
+        display: flex !important;
+        flex-basis: auto;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #000000;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        margin: 0;
+      }
+
+      .nav-menu li {
+        margin: 0 10px;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--menu-text);
+        font-weight: 500;
+      }
+
+      .search-form {
+        display: flex;
+        align-items: center;
+      }
+
+      .alert a {
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      }
+
+      .alert a:hover {
+        background: #ffe1e1;
+        color: #ff0000;
+        box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+        border-radius: 4px;
+      }
+
+      .alert-dark a:hover {
+        background: #d6d6d6;
+        color: #000;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .search-input {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .search-button {
+        padding: 6px 10px;
+        border: none;
+        background: var(--btn-color);
+        color: #fff;
+        border-radius: 0 3px 3px 0;
+        font-weight: 500;
+      }
+
+      .ads-warp {
+        margin: 10px 0;
+      }
+
+      .ad-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .ad-list img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .iframe-container {
+        margin-top: 10px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .iframe-wrapper {
+        width: 100vw;
+        margin: 0 auto;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .iframe-wrapper iframe {
+        width: 100vw;
+        height: 400vh;
+        border: none;
+        display: block;
+        margin-top: -290px;
+      }
+
+      @media (max-width: 768px) {
+        .right-section {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        .nav-menu {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 6px 10px;
+        border-radius: 6px;
+      }
+
+      .top-header.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark-mode {
+        background-color: #ffffff;
+        color: #f5f5f5;
+      }
+
+      .dark-mode .top-header {
+        background: #000000;
+      }
+
+      .dark-mode .navbar {
+        background: #1a1a1a;
+      }
+
+      .dark-mode .nav-menu a {
+        color: #f1f1f1;
+      }
+
+      .dark-mode .search-button {
+        background: #bb86fc;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-menu-wrapper,
+      .right-section,
+      .nav-links,
+      .search-form {
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 768px) {
+        .top-header {
+          flex-direction: column !important;
+          text-align: center;
+        }
+
+        .ohlilogo {
+          margin-bottom: 10px;
+        }
+
+        .nav-menu-wrapper {
+          flex-grow: 1;
+          align-items: center;
+          display: flex !important;
+          flex-basis: auto;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #212529;
+
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .nav-menu {
+          flex-direction: column;
+          align-items: center;
+          padding: 0;
+        }
+
+        .nav-menu li {
+          margin: 8px 0;
+        }
+
+        .right-section {
+          flex-direction: column;
+          align-items: center;
+          margin-top: 10px;
+          gap: 5px;
+        }
+
+        .search-form {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .container {
+          padding: 0 5px;
+        }
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 24px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+          margin-left: auto;
+          margin-right: 10px;
+        }
+
+        .nav-menu {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background: var(--menu-bg);
+          padding: 10px 0;
+        }
+
+        .nav-menu.show {
+          display: flex;
+        }
+      }
+    </style>
+    <style>
+      .ad-list a img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .ad-list a:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      }
+    </style>
+    <style>
+      .banner-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .banner-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .banner-grid a:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      }
+      @media (max-width: 768px) {
+        .banner-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-header">
+      <div
+        class="container"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div class="ohlilogo">
+          <a class="logo" href="https://OHLI365.ORG/" title="애니365">
+            <img alt="애니365" src="img/ani365_logo.svg" />
+          </a>
+        </div>
+        <div class="right-section">
+          <div class="nav-links">
+            <a href="/register">회원가입</a>
+            <a href="/login">로그인</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="navbar">
+      <div class="container">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-menu-wrapper">
+          <ul class="nav-menu">
+            <li>
+              <a
+                href="#"
+                onclick="loadIframe('https://aniweek.com/bbs/board.php?bo_table=ing')"
+                ><i class="fa fa-play-circle"></i> 방영중</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="loadIframe('https://aniweek.com/bbs/board.php?bo_table=fin')"
+                ><i class="fa fa-stop-circle"></i> 완결</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="loadIframe('https://aniweek.com/bbs/board.php?bo_table=theater')"
+                ><i class="fa fa-film"></i> 극장판</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="loadIframe('https://aniweek.com/bbs/login.php?url=https://aniweek.com/bbs/bookmark.php')"
+                ><i class="fa fa-bookmark"></i> 북마크</a
+              >
+            </li>
+            <li>
+              <a href="https://t.me/OHLI365ask"
+                ><i class="fa fa-map-marker"></i> 주소안내</a
+              >
+            </li>
+            <li>
+              <a href="https://t.me/OHLI365ask"
+                ><i class="fab fa-telegram"></i> 고객센터</a
+              >
+            </li>
+          </ul>
+          <form class="search-form" method="get">
+            <input
+              class="search-input"
+              name="keyword"
+              placeholder="제목 검색"
+              type="text"
+            />
+            <button class="search-button" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div
+      class="alert alert-danger alert-dismissible fade show mt-1"
+      role="alert"
+      style="
+        font-size: 13px;
+        width: 100%;
+        background: #242424;
+        color: #000000;
+        border: none;
+        margin-bottom: 15px;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0px;
+        text-align: center;
+      "
+    >
+      <a href="https://t.me/OHLI365ask" style="color: #000000" target="_blank"
+        >[AD] 스마일 메이저사이트 무한입플 첫충40% 코드:7711</a
+      >
+    </div>
+    <div
+      class="alert alert-danger alert-dismissible fade show mt-1"
+      role="alert"
+      style="
+        font-size: 14px;
+        width: 100%;
+        background: #353535;
+        color: #ffffff;
+        border: none;
+        margin-bottom: 20px;
+        padding: 0.2rem 0.75rem;
+        border-radius: 0px;
+        text-align: center;
+      "
+    >
+      <span
+        class="alert alert-danger alert-dismissible fade show mt-1"
+        style="margin-top: 10px"
+        >접속주소 공지사항 및 광고문의</span
+      >
+      <a
+        alt="블랙툰 공지사항"
+        class="btn btn-outline-dark btn-sm"
+        href="https://t.me/OHLI365ask"
+        style="font-size: 14px; color: #c5c5c5"
+        target="_blank"
+        >바로가기</a
+      >
+    </div>
+
+    <div
+      class="container banner mt-2"
+      style="padding-left: 20px; padding-right: 20px"
+    >
+      <div class="banner-grid">
+        <a href="https://1bet1.sc/"><img alt="1bet1" src="img/1bet1.gif" /></a>
+        <a href="https://wn-oy.bet/"
+          ><img alt="winner" src="img/winner.gif"
+        /></a>
+        <a href="https://xn--hz2b25l7xa05l43b.com/"
+          ><img alt="smile" src="img/smile.gif"
+        /></a>
+        <a href="https://rv-0202.com/?ref=BK"
+          ><img alt="redvelvet" src="img/redvelvet.gif"
+        /></a>
+        <a href="https://mco-011.com/"
+          ><img alt="macau" src="img/macau.gif"
+        /></a>
+        <a href="http://xn--o39ar90b80a9p719dria.com/?v=1748933004840"
+          ><img alt="pegasus" src="img/pegasus.gif"
+        /></a>
+      </div>
+    </div>
+    <div class="iframe-container">
+      <div class="iframe-wrapper">
+        <iframe
+          id="mainFrame"
+          sandbox="allow-scripts allow-same-origin"
+          scrolling="no"
+          src="https://aniweek.com/"
+        ></iframe>
+      </div>
+    </div>
+    <script>
+      function loadIframe(url) {
+        document.getElementById("mainFrame").src = url;
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth", // 부드럽게 올라가게 만들기
+        });
+      }
+
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".top-header");
+        if (window.scrollY > 50) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      });
+
+      // 다크모드 자동 적용 (저장된 모드 또는 시스템 설정)
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.body.classList.add("dark-mode");
+      }
+
+      // 다크모드 토글 버튼 (선택사항)
+      // const toggleBtn = document.createElement('button');
+      // toggleBtn.textContent = '🌙';
+      // toggleBtn.style = 'position:fixed;bottom:10px;right:10px;padding:10px;border:none;border-radius:8px;background:#333;color:#fff;z-index:999;';
+      // toggleBtn.onclick = () => {
+      //   document.body.classList.toggle('dark-mode');
+      //   localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      // };
+      // document.body.appendChild(toggleBtn);
+
+      function toggleMenu() {
+        const menu = document.querySelector(".nav-menu");
+        menu.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>
