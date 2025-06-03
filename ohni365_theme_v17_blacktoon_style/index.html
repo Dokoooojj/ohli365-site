@@ -42,12 +42,12 @@
 
         font-family: "Jua", "Gmarket Sans", sans-serif;
         font-size: 1rem;
-        background-color: #f3f1f1;
-        color: #333;
+        background-color: #ffffff;
+        color: #ffffff;
       }
 
       .container {
-        max-width: 1300px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 0 10px;
       }
@@ -75,11 +75,18 @@
         font-weight: 500;
       }
 
+      .top-header,
       .navbar {
-        background: var(--menu-bg);
-        border-bottom: 2px solid #e7e7e7;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
       }
 
+      .navbar {
+        top: 68px; /* 헤더 높이만큼 아래로 */
+      }
       .nav-menu-wrapper {
         flex-grow: 1;
         align-items: center;
@@ -178,21 +185,18 @@
       }
 
       .iframe-wrapper {
-        max-width: 1300px;
-        margin: -200px auto 0;
-        padding: 0 10px;
-        position: relative;
-        z-index: 0;
+        width: 100vw;
+        margin: 0 auto;
+        padding: 0;
+        overflow-x: hidden;
       }
 
       .iframe-wrapper iframe {
-        width: 100%;
-        height: 5000px;
+        width: 100vw;
+        height: 400vh;
         border: none;
-        margin-top: -260px;
         display: block;
-        position: relative;
-        z-index: -20;
+        margin-top: -290px;
       }
 
       @media (max-width: 768px) {
@@ -221,12 +225,12 @@
       }
 
       .dark-mode {
-        background-color: #121212;
+        background-color: #ffffff;
         color: #f5f5f5;
       }
 
       .dark-mode .top-header {
-        background: #2a2a2a;
+        background: #000000;
       }
 
       .dark-mode .navbar {
@@ -307,11 +311,6 @@
           justify-content: center;
         }
 
-        .iframe-wrapper iframe {
-          margin-top: 0;
-          height: 3000px;
-        }
-
         .container {
           padding: 0 5px;
         }
@@ -361,7 +360,7 @@
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         gap: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
       }
       .banner-grid img {
         width: 100%;
@@ -467,10 +466,10 @@
       style="
         font-size: 13px;
         width: 100%;
-        background: #e7e2e2;
+        background: #242424;
         color: #000000;
         border: none;
-        margin-bottom: 4px;
+        margin-bottom: 85px;
         padding: 0.25rem 0.75rem;
         border-radius: 0px;
         text-align: center;
@@ -486,8 +485,8 @@
       style="
         font-size: 14px;
         width: 100%;
-        background: #f0d6d6;
-        color: #000000;
+        background: #353535;
+        color: #ffffff;
         border: none;
         margin-bottom: 0px;
         padding: 0.2rem 0.75rem;
@@ -497,7 +496,7 @@
     >
       <span
         class="alert alert-danger alert-dismissible fade show mt-1"
-        style="margin-top: 5px"
+        style="margin-top: 30px"
         >접속주소 공지사항 및 광고문의</span
       >
         
@@ -505,7 +504,7 @@
         alt="블랙툰 공지사항"
         class="btn btn-outline-dark btn-sm"
         href="https://t.me/OHLI365ask"
-        style="font-size: 12px; color: #070707"
+        style="font-size: 14px; color: #c5c5c5"
         target="_blank"
         >바로가기</a
       >
@@ -547,6 +546,10 @@
     <script>
       function loadIframe(url) {
         document.getElementById("mainFrame").src = url;
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth", // 부드럽게 올라가게 만들기
+        });
       }
 
       window.addEventListener("scroll", function () {
