@@ -23,8 +23,8 @@
       :root {
         --header-bg: #000000;
         --menu-bg: #34363f;
-        --menu-text: #ffffff;
-        --btn-color: #ff4081;
+        --menu-text: #000000;
+        --btn-color: #5c5a5b;
       }
 
       * {
@@ -59,7 +59,7 @@
       }
 
       .ohlilogo img {
-        height: 50px;
+        height: 38px;
       }
 
       .right-section {
@@ -70,12 +70,11 @@
 
       .nav-links a {
         margin-left: 10px;
-        color: #fff;
+        color: #000000;
         text-decoration: none;
         font-weight: 500;
       }
 
-      .top-header,
       .navbar {
         position: fixed;
         top: 0;
@@ -85,7 +84,8 @@
       }
 
       .navbar {
-        top: 68px; /* 헤더 높이만큼 아래로 */
+        top: 63px; /* 헤더 높이만큼 아래로 */
+        background-color: #f8f5f5;
       }
       .nav-menu-wrapper {
         flex-grow: 1;
@@ -97,7 +97,7 @@
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
-        color: #383c41;
+        color: #000000;
 
         display: flex;
         justify-content: space-between;
@@ -469,7 +469,7 @@
         background: #242424;
         color: #000000;
         border: none;
-        margin-bottom: 85px;
+        margin-bottom: 15px;
         padding: 0.25rem 0.75rem;
         border-radius: 0px;
         text-align: center;
@@ -488,7 +488,7 @@
         background: #353535;
         color: #ffffff;
         border: none;
-        margin-bottom: 0px;
+        margin-bottom: 20px;
         padding: 0.2rem 0.75rem;
         border-radius: 0px;
         text-align: center;
@@ -496,10 +496,9 @@
     >
       <span
         class="alert alert-danger alert-dismissible fade show mt-1"
-        style="margin-top: 30px"
+        style="margin-top: 10px"
         >접속주소 공지사항 및 광고문의</span
       >
-        
       <a
         alt="블랙툰 공지사항"
         class="btn btn-outline-dark btn-sm"
